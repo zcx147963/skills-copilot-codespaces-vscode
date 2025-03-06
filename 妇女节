@@ -1,0 +1,68 @@
+import turtle
+import time
+
+# 设置画布
+screen = turtle.Screen()
+screen.bgcolor("pink")
+screen.title("三八妇女节快乐！")
+
+# 创建画笔
+pen = turtle.Turtle()
+pen.speed(10)
+pen.color("red")
+
+# 绘制花朵函数
+def draw_flower():
+    for _ in range(36):
+        pen.forward(50)
+        pen.right(45)
+        pen.forward(30)
+        pen.right(135)
+        pen.forward(30)
+        pen.right(45)
+        pen.forward(50)
+        pen.right(10)
+    pen.right(90)
+    pen.forward(150)
+
+# 绘制花朵
+draw_flower()
+
+# 写祝福语
+pen.penup()
+pen.goto(-200, -100)
+pen.color("purple")
+pen.write("亲爱的妈妈：", align="left", font=("楷体", 28, "bold"))
+
+pen.goto(-200, -150)
+pen.color("darkviolet")
+pen.write("感谢您一直以来的付出与关爱", align="left", font=("楷体", 24))
+
+pen.goto(-200, -200)
+pen.color("blue")
+pen.write("愿您永远健康美丽，幸福安康！", align="left", font=("楷体", 24))
+
+pen.goto(-200, -250)
+pen.color("red")
+pen.write("祝您三八妇女节快乐！", align="left", font=("楷体", 32, "bold"))
+
+# 添加动态效果
+colors = ["red", "orange", "yellow", "green", "blue", "purple"]
+heart = turtle.Turtle()
+heart.shape("triangle")
+heart.speed(0)
+heart.penup()
+heart.goto(200, -200)
+
+for _ in range(36):
+    heart.color(colors[_%6])
+    heart.stamp()
+    heart.right(10)
+    heart.forward(20)
+
+# 隐藏画笔
+pen.hideturtle()
+heart.hideturtle()
+
+# 保持窗口打开
+turtle.done()
